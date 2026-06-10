@@ -128,12 +128,14 @@ const focusAreas = [
     </article>
 
     <aside class="sidebar" aria-label="Focus areas">
-      <h3>Focus areas</h3>
-      <ul>
-        {focusAreas.map((area) => (
-          <li>{area}</li>
-        ))}
-      </ul>
+      <div class="sidebar__card">
+        <h3>Focus areas</h3>
+        <ul>
+          {focusAreas.map((area) => (
+            <li>{area}</li>
+          ))}
+        </ul>
+      </div>
     </aside>
   </div>
 </BaseLayout>

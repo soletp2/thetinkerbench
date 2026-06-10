@@ -25,8 +25,14 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
     <header class="post-header">
       <h1>{post.data.title}</h1>
       <p class="post-meta">
-        {formattedDate}
-        {post.data.tags.length > 0 && ` · ${post.data.tags.join(', ')}`}
+        <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+        {post.data.tags.length > 0 && (
+          <span class="post-meta__tags" aria-label="Tags">
+            {post.data.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </span>
+        )}
       </p>
     </header>
     <Content />

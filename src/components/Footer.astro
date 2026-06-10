@@ -5,13 +5,19 @@ import { withBase } from '../utils/base';
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <p>
-      <strong>{site.title}</strong> — {site.tagline}.
-      I write about developer documentation, docs-as-code pipelines, API references,
-      and using AI to keep documentation accurate as products scale.
-    </p>
-    <p>
-      <a href={withBase('about/')}>Learn more about me</a> or <a href={withBase('contact/')}>get in touch</a>.
-    </p>
+    <div class="site-footer__brand">
+      <p>
+        <strong>{site.title}</strong> — {site.tagline}.
+      </p>
+      <p>
+        Writing on developer documentation, docs-as-code pipelines, and AI-driven
+        documentation automation.
+      </p>
+    </div>
+    <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href={withBase('about/')}>About</a>
+      <a href={withBase('contact/')}>Contact</a>
+      <a href={`mailto:${site.email}`}>Email</a>
+    </nav>
   </div>
 </footer>

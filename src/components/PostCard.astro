@@ -21,6 +21,10 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
   <p class="post-card__meta">{formattedDate}</p>
   <p class="post-card__description">{post.data.description}</p>
   {post.data.tags.length > 0 && (
-    <p class="post-card__tags">{post.data.tags.join(' · ')}</p>
+    <ul class="post-card__tags" aria-label="Tags">
+      {post.data.tags.map((tag) => (
+        <li><span class="tag">{tag}</span></li>
+      ))}
+    </ul>
   )}
 </article>

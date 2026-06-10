@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { site } from '../site.config';
+import { withBase } from '../utils/base';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -14,16 +15,24 @@ const posts = (await getCollection('blog')).sort(
   description="Writing on developer documentation, docs-as-code, API references, and AI-driven documentation pipelines."
 >
   <div class="content">
-    <header class="page-intro">
+    <header class="hero">
+      <span class="hero__badge">{site.tagline}</span>
       <h1>{site.title}</h1>
-      <p class="tagline">{site.tagline}</p>
-      <p>
+      <p class="hero__lead">
         Notes on developer documentation, docs-as-code pipelines, OpenAPI automation,
         and building AI agents that keep references in sync with the codebase.
       </p>
+      <div class="hero__actions">
+        <a href={withBase('about/')} class="btn btn--primary">About me</a>
+        <a href={withBase('contact/')} class="btn btn--ghost">Get in touch</a>
+      </div>
     </header>
 
     <section aria-label="Blog posts">
+      <div class="section-header">
+        <h2>Latest writing</h2>
+        <span class="section-header__count">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</span>
+      </div>
       <ul class="post-list">
         {posts.map((post) => (
           <li>

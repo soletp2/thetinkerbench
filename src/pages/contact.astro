@@ -8,37 +8,47 @@ import { site } from '../site.config';
   description="Get in touch with Pavlo Soletskyi about documentation engineering, technical writing, or collaboration."
 >
   <div class="content">
-    <header class="page-intro">
-      <h1>Contact</h1>
-      <p>
-        I'm open to conversations about documentation engineering, senior technical writing
-        roles, consulting on docs-as-code pipelines, and AI-driven documentation automation.
-        If something here resonated, I'd like to hear from you.
-      </p>
-    </header>
+    <div class="page-card">
+      <header class="page-intro">
+        <h1>Contact</h1>
+        <p>
+          I'm open to conversations about documentation engineering, senior technical writing
+          roles, consulting on docs-as-code pipelines, and AI-driven documentation automation.
+          If something here resonated, I'd like to hear from you.
+        </p>
+      </header>
 
-    <ul class="contact-list">
-      <li>
-        <strong>Email</strong>
-        <a href={`mailto:${site.email}`}>{site.email}</a>
-      </li>
-      {site.github && (
-        <li>
-          <strong>GitHub</strong>
-          <a href={site.github} target="_blank" rel="noopener noreferrer">{site.github}</a>
-        </li>
-      )}
-      {site.linkedin && (
-        <li>
-          <strong>LinkedIn</strong>
-          <a href={site.linkedin} target="_blank" rel="noopener noreferrer">{site.linkedin}</a>
-        </li>
-      )}
-    </ul>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p class="contact-card__label">Email</p>
+          <p class="contact-card__value">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+        </div>
+        {site.github && (
+          <div class="contact-card">
+            <p class="contact-card__label">GitHub</p>
+            <p class="contact-card__value">
+              <a href={site.github} target="_blank" rel="noopener noreferrer">View profile</a>
+            </p>
+          </div>
+        )}
+        {site.linkedin && (
+          <div class="contact-card">
+            <p class="contact-card__label">LinkedIn</p>
+            <p class="contact-card__value">
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer">Connect</a>
+            </p>
+          </div>
+        )}
+      </div>
 
-    <p>
-      For most documentation questions, you'll get a faster response by email. I try to reply
-      within a few business days.
-    </p>
+      <aside class="contact-note">
+        <p>
+          For most documentation questions, you'll get a faster response by email.
+          I try to reply within a few business days.
+        </p>
+      </aside>
+    </div>
   </div>
 </BaseLayout>
