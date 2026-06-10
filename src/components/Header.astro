@@ -11,7 +11,7 @@ const { currentPath = '' } = Astro.props;
 const navItems = [
   { href: withBase(), label: 'Blog' },
   { href: withBase('about'), label: 'About' },
-  { href: withBase('contact'), label: 'Contact' },
+  { href: withBase('contact/'), label: 'Contact' },
 ];
 
 function isActive(href: string): boolean {
