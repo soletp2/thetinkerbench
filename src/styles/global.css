@@ -729,14 +729,153 @@ main {
   margin: 0;
 }
 
-/* About focus list */
+/* About page */
 
-.focus-list {
-  margin: 1rem 0 1.5rem;
+.about-page {
+  padding: 2.5rem 2.75rem;
 }
 
-.focus-list li {
+.about-hero {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-hero h1 {
+  font-size: 2.1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+}
+
+.about-hero__lead {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  max-width: 38rem;
+  margin: 0;
+}
+
+.about-highlights {
+  display: grid;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .about-highlights {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.about-highlights__item {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+}
+
+.about-highlights__label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin: 0 0 0.35rem;
+}
+
+.about-highlights__value {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.about-section {
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.about-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.about-section h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.about-section__intro {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.about-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.about-list li {
+  margin-bottom: 0.65rem;
   padding-left: 0.25rem;
+  color: var(--color-text-muted);
+}
+
+.about-list li::marker {
+  color: var(--color-accent);
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-tags li {
+  margin: 0;
+}
+
+.about-section--cta {
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.about-section--cta h2 {
+  margin-bottom: 0.65rem;
+}
+
+.about-section--cta p {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+.about-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 1.5rem;
+  }
+
+  .about-section--cta {
+    padding: 1.25rem;
+  }
 }
 
 /* Page card wrapper for inner pages */
