@@ -1,0 +1,17 @@
+---
+import { site } from '../site.config';
+import { withBase } from '../utils/base';
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>
+      <strong>{site.title}</strong> — {site.tagline} based in {site.location}.
+      I write about developer documentation, docs-as-code pipelines, API references,
+      and using AI to keep documentation accurate as products scale.
+    </p>
+    <p>
+      <a href={withBase('about')}>Learn more about me</a> or <a href={withBase('contact')}>get in touch</a>.
+    </p>
+  </div>
+</footer>

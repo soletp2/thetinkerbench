@@ -1,0 +1,45 @@
+---
+import { site } from '../site.config';
+import { withBase } from '../utils/base';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const navItems = [
+  { href: withBase(), label: 'Blog' },
+  { href: withBase('about'), label: 'About' },
+  { href: withBase('contact'), label: 'Contact' },
+];
+
+function isActive(href: string): boolean {
+  const normalizedPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+  const normalizedHref = href.endsWith('/') ? href : `${href}/`;
+  if (href === withBase()) {
+    return normalizedPath === normalizedHref || normalizedPath.includes('/blog/');
+  }
+  return normalizedPath === normalizedHref || normalizedPath.startsWith(normalizedHref);
+}
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href={withBase()} class="site-title">{site.title}</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

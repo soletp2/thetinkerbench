@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../site.config';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Pavlo Soletskyi about documentation engineering, technical writing, or collaboration."
+>
+  <div class="content">
+    <header class="page-intro">
+      <h1>Contact</h1>
+      <p>
+        I'm open to conversations about documentation engineering, senior technical writing
+        roles, consulting on docs-as-code pipelines, and AI-driven documentation automation.
+        If something here resonated, I'd like to hear from you.
+      </p>
+    </header>
+
+    <ul class="contact-list">
+      <li>
+        <strong>Email</strong>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </li>
+      <li>
+        <strong>Phone</strong>
+        <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+      </li>
+      <li>
+        <strong>Location</strong>
+        {site.location} (open to relocation)
+      </li>
+      {site.github && (
+        <li>
+          <strong>GitHub</strong>
+          <a href={site.github} target="_blank" rel="noopener noreferrer">{site.github}</a>
+        </li>
+      )}
+      {site.linkedin && (
+        <li>
+          <strong>LinkedIn</strong>
+          <a href={site.linkedin} target="_blank" rel="noopener noreferrer">{site.linkedin}</a>
+        </li>
+      )}
+    </ul>
+
+    <p>
+      For most documentation questions, you'll get a faster response by email. I try to reply
+      within a few business days.
+    </p>
+  </div>
+</BaseLayout>

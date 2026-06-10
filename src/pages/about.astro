@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../site.config';
+import { withBase } from '../utils/base';
+
+const focusAreas = [
+  'Developer documentation and API references',
+  'Docs-as-code and CI/CD pipelines',
+  'AI agents for documentation automation',
+  'Information architecture and content design',
+  'Regulated documentation (ISO 13485) and process',
+];
+---
+
+<BaseLayout
+  title="About"
+  description="About Pavlo Soletskyi — documentation engineer and senior technical writer."
+>
+  <div class="content content--with-sidebar">
+    <article>
+      <header class="page-intro">
+        <h1>{site.title}</h1>
+        <p class="tagline">
+          Hi, I'm Pavlo — a documentation engineer and senior technical writer based in {site.location}, open to relocation.
+        </p>
+      </header>
+
+      <p>
+        I own developer documentation end-to-end as a product — from getting-started guides,
+        conceptual docs, and OpenAPI references through long-term maintenance. I also build the
+        docs-as-code toolchain that keeps documentation accurate as product velocity scales:
+        CI/CD-integrated pipelines, build-tool plugins that generate API contracts from source,
+        and AI agents that produce references, architecture diagrams, and READMEs directly from
+        microservice codebases.
+      </p>
+
+      <h2>How did you get into technical writing?</h2>
+      <p>
+        Like many technical writers, I didn't start in the field. I began in marketing and
+        copywriting at EngSchool, where I produced content plans, commercial scripts, and blog
+        posts. That work taught me how to write for an audience — but I wanted work that combined
+        writing with something more structured and technical.
+      </p>
+      <p>
+        I found that combination at GlobalLogic, where I spent nearly four years on regulated
+        medical robotics documentation. I authored Design Specification Documents, System
+        Requirement Specifications, validation plans, and test documentation to ISO 13485
+        standards. I also led a cross-functional team of 14 software developers as project
+        manager — sprint planning, risk assessment, client presentations, and compliance with
+        QMS and SOPs.
+      </p>
+      <p>
+        Along the way I took on part-time technical writing at Mate Academy, creating and
+        editing educational content for Python, Java, JavaScript, DevOps, and QA courses in
+        Ukrainian and English. I built a unified style guide and streamlined the review process
+        — my first real docs-as-code experience with Markdown and Git.
+      </p>
+      <p>
+        In 2025 I moved into senior documentation engineering at GridDynamics, where I design
+        and maintain the automated documentation infrastructure for a large microservices platform.
+        To my surprise (and relief), I found that documentation engineering combines everything
+        I care about: clear writing, software tooling, and making developers' lives easier.
+      </p>
+
+      <h2>What do you work on today?</h2>
+      <p>
+        My main project is an AI-driven docs-as-code pipeline integrated into CI/CD. On every
+        build across roughly 120 microservices, the pipeline regenerates developer documentation
+        so references stay in sync with the codebase and manual drift doesn't accumulate.
+      </p>
+      <p>
+        A custom Gradle plugin (Groovy plugin layer, core logic in Java) auto-generates OpenAPI
+        contracts from annotated Java code — removing manual API-contract authoring across 85 REST
+        services. Five autonomous AI-agent capabilities power the rest of the pipeline: per-service
+        README generation, service- and system-level architecture diagramming, automated publishing
+        to the internal developer portal, business-requirements extraction from REST controller
+        logic, and AGENT.md authoring to standardize how AI coding agents interpret the codebase.
+      </p>
+      <p>
+        Reliability matters as much as generation. I engineered guardrails for concurrency on
+        parallel writes, a three-layer loop-prevention strategy, and token-quota controls so
+        automated documentation is safe to run on every CI execution without recurring defects.
+      </p>
+
+      <h2>What's your educational background?</h2>
+      <p>
+        I earned a B.A. in Applied Linguistics from Lviv Polytechnic University in 2024. Before
+        that, I completed a summer educational program at Diablo Valley College in California
+        (2021).
+      </p>
+      <p>
+        The linguistics background carries over directly to my work. Applied linguistics is
+        essentially the study of how language functions in real contexts — which is what
+        information architecture and technical content design are about. I think about reader
+        mental models, terminology consistency, and how structure affects comprehension the
+        same way a linguist thinks about syntax and pragmatics.
+      </p>
+
+      <h2>Leadership and community</h2>
+      <p>
+        At GlobalLogic I led a team of 14 developers through the full project lifecycle — not
+        just writing docs but translating client needs into structured work, defending proposals,
+        and keeping everyone aligned with ISO 13485 requirements.
+      </p>
+      <p>
+        Outside of work, I served as project manager for Pobachymos Foundation (May 2023 – March
+        2024), organizing charity auctions across Ukraine.
+      </p>
+      <p>
+        I speak English (full professional proficiency), Ukrainian (native), and German (limited
+        working proficiency).
+      </p>
+
+      <h2>What topics do you care about?</h2>
+      <p>On this site I write about topics such as the following:</p>
+      <ul class="focus-list">
+        {focusAreas.map((area) => (
+          <li>{area}</li>
+        ))}
+      </ul>
+
+      <h2>How can you reach me?</h2>
+      <p>
+        If you have a question or want to discuss documentation engineering, you can
+        <a href={withBase('contact')}>contact me here</a> or email me at
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </article>
+
+    <aside class="sidebar" aria-label="Focus areas">
+      <h3>Focus areas</h3>
+      <ul>
+        {focusAreas.map((area) => (
+          <li>{area}</li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+</BaseLayout>

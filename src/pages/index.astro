@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { site } from '../site.config';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title={site.title}
+  description="Writing on developer documentation, docs-as-code, API references, and AI-driven documentation pipelines."
+>
+  <div class="content">
+    <header class="page-intro">
+      <h1>{site.title}</h1>
+      <p class="tagline">{site.tagline}</p>
+      <p>
+        Notes on developer documentation, docs-as-code pipelines, OpenAPI automation,
+        and building AI agents that keep references in sync with the codebase.
+      </p>
+    </header>
+
+    <section aria-label="Blog posts">
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li>
+            <PostCard post={post} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</BaseLayout>
