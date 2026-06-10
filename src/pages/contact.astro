@@ -22,14 +22,6 @@ import { site } from '../site.config';
         <strong>Email</strong>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </li>
-      <li>
-        <strong>Phone</strong>
-        <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
-      </li>
-      <li>
-        <strong>Location</strong>
-        {site.location} (open to relocation)
-      </li>
       {site.github && (
         <li>
           <strong>GitHub</strong>
