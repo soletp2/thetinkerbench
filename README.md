@@ -1,4 +1,4 @@
-# Pavlo Soletskyi — Personal Site
+# The Tinker Bench
 
 A static personal website built with [Astro](https://astro.build). Includes a blog, Q&A-style about page, and contact page.
 
@@ -40,7 +40,7 @@ Add a `public/CNAME` file with your domain, then configure DNS with your registr
 
 ## Configuration
 
-Edit [`src/site.config.ts`](src/site.config.ts) to update your name, email, social links, and tagline.
+Edit [`src/site.config.ts`](src/site.config.ts) to update the site name, author, email, social links, and tagline.
 
 ## Adding blog posts
 
