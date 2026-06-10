@@ -33,16 +33,22 @@ else
 fi
 
 echo ""
-echo "==> Enabling GitHub Pages (Actions source)..."
+echo "==> Checking GitHub Pages is enabled..."
 if ! gh api repos/soletp2/pavlo-soletskyi-site/pages &>/dev/null; then
-  gh api repos/soletp2/pavlo-soletskyi-site/pages -X POST -f build_type=workflow
-else
-  gh api repos/soletp2/pavlo-soletskyi-site/pages -X PUT -f build_type=workflow
+  echo ""
+  echo "Pages is NOT enabled yet. Do this once in your browser:"
+  echo "  1. Open https://github.com/soletp2/pavlo-soletskyi-site/settings/pages"
+  echo "  2. Under 'Build and deployment', set Source to 'GitHub Actions'"
+  echo "  3. Also open https://github.com/soletp2/pavlo-soletskyi-site/settings/actions"
+  echo "     and set Workflow permissions to 'Read and write permissions'"
+  echo ""
+  echo "Then run: git push   (or: gh workflow run deploy.yml)"
+  exit 1
 fi
 
 echo ""
 echo "==> Triggering deploy workflow..."
-gh workflow run deploy.yml || gh run rerun --failed
+gh workflow run deploy.yml 2>/dev/null || true
 
 echo ""
 echo "==> Waiting for GitHub Actions deploy..."
