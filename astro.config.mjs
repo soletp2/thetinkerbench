@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://pavlosoletskyy.github.io',
+  site: 'https://soletp2.github.io',
   base: '/pavlo-soletskyi-site/',
 });
