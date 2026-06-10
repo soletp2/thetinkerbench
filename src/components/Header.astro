@@ -28,25 +28,25 @@ function isActive(href: string): boolean {
 <header class="site-header">
   <div class="site-header__inner">
     <a href={withBase()} class="site-title">
-      <span class="site-title__avatar" aria-hidden="true">PS</span>
+      <span class="site-title__avatar" aria-hidden="true">TB</span>
       {site.title}
     </a>
-    <div class="site-header__actions">
-      <ThemeToggle />
-      <nav aria-label="Main navigation">
-        <ul class="site-nav">
-          {navItems.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <ThemeToggle />
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
