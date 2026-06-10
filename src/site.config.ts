@@ -1,6 +1,6 @@
 export const site = {
-  title: 'Pavlo Soletskyi',
-  tagline: 'Documentation engineer · Senior technical writer',
+  title: 'The Tinker Bench',
+  tagline: 'AI tools · automation · software experiments',
   author: 'Pavlo Soletskyi',
   email: 'pavlosoletskyy@gmail.com',
   github: '',
