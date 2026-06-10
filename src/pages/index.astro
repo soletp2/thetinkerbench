@@ -12,15 +12,15 @@ const posts = (await getCollection('blog')).sort(
 
 <BaseLayout
   title={site.title}
-  description="Notes on building AI tools, automating workflows, and learning software development in public."
+  description="Writing on developer documentation, docs-as-code, API references, and AI-driven documentation pipelines."
 >
   <div class="content">
     <header class="hero">
       <span class="hero__badge">{site.tagline}</span>
       <h1>{site.title}</h1>
       <p class="hero__lead">
-        A workshop for experiments — AI-assisted tools, process automation, docs-as-code pipelines,
-        and the software craft behind useful solutions.
+        Notes on developer documentation, docs-as-code pipelines, OpenAPI automation,
+        and building AI agents that keep references in sync with the codebase.
       </p>
       <div class="hero__actions">
         <a href={withBase('about/')} class="btn btn--primary">About me</a>
