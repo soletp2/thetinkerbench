@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:4321/pavlo-soletskyi-site/](http://localhost:4321/pavlo-soletskyi-site/) in your browser.
+Open [http://localhost:4321/thetinkerbench/](http://localhost:4321/thetinkerbench/) in your browser.
 
 ## Build
 
@@ -20,11 +20,11 @@ npm run preview
 
 ## Deploy to GitHub Pages
 
-1. Create a new repository on GitHub named `pavlo-soletskyi-site`
+1. Create a new repository on GitHub named `thetinkerbench`
 2. Push this project to the `main` branch:
 
    ```bash
-   git remote add origin git@github.com:<your-username>/pavlo-soletskyi-site.git
+   git remote add origin git@github.com:<your-username>/thetinkerbench.git
    git add .
    git commit -m "Initial site"
    git push -u origin main
@@ -32,7 +32,7 @@ npm run preview
 
 3. In the repository **Settings → Pages**, set **Source** to **GitHub Actions**
 4. The workflow in `.github/workflows/deploy.yml` builds and deploys on every push to `main`
-5. Your site will be live at `https://<your-username>.github.io/pavlo-soletskyi-site/`
+5. Your site will be live at `https://<your-username>.github.io/thetinkerbench/`
 
 ### Custom domain (optional)
 
