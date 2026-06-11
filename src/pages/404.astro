@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/base';
+---
+
+<BaseLayout title="Page not found" description="The page you were looking for doesn't exist.">
+  <div class="content">
+    <div class="page-card">
+      <header class="page-intro">
+        <h1>Page not found</h1>
+        <p>
+          The page you were looking for doesn't exist or has moved.
+          It may have been renamed, or the link you followed is out of date.
+        </p>
+      </header>
+      <div class="hero__actions">
+        <a href={withBase()} class="btn btn--primary">Back to the blog</a>
+        <a href={withBase('contact/')} class="btn btn--ghost">Report a broken link</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

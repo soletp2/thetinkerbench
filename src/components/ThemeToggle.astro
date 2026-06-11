@@ -21,15 +21,8 @@
 </button>
 
 <script>
-  function getTheme(): 'light' | 'dark' {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light' || stored === 'dark') return stored;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
   function applyTheme(theme: 'light' | 'dark') {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
   }
 
   const button = document.querySelector<HTMLButtonElement>('.theme-toggle');
@@ -37,10 +30,13 @@
     button.addEventListener('click', () => {
       const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(next);
+      // Only an explicit toggle should persist a preference.
+      localStorage.setItem('theme', next);
     });
   }
 
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    // Follow OS changes only while the user has no explicit preference.
     if (!localStorage.getItem('theme')) {
       applyTheme(e.matches ? 'dark' : 'light');
     }
