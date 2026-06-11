@@ -22,24 +22,24 @@ gh auth status -h github.com
 
 echo ""
 echo "==> Creating repository (if needed) and pushing..."
-if ! gh repo view soletp2/pavlo-soletskyi-site &>/dev/null; then
-  gh repo create pavlo-soletskyi-site --public \
+if ! gh repo view soletp2/thetinkerbench &>/dev/null; then
+  gh repo create thetinkerbench --public \
     --description "Personal website for Pavlo Soletskyi" \
     --source=. --remote=origin --push
 else
   git remote get-url origin &>/dev/null || \
-    git remote add origin https://github.com/soletp2/pavlo-soletskyi-site.git
+    git remote add origin https://github.com/soletp2/thetinkerbench.git
   git push -u origin main
 fi
 
 echo ""
 echo "==> Checking GitHub Pages is enabled..."
-if ! gh api repos/soletp2/pavlo-soletskyi-site/pages &>/dev/null; then
+if ! gh api repos/soletp2/thetinkerbench/pages &>/dev/null; then
   echo ""
   echo "Pages is NOT enabled yet. Do this once in your browser:"
-  echo "  1. Open https://github.com/soletp2/pavlo-soletskyi-site/settings/pages"
+  echo "  1. Open https://github.com/soletp2/thetinkerbench/settings/pages"
   echo "  2. Under 'Build and deployment', set Source to 'GitHub Actions'"
-  echo "  3. Also open https://github.com/soletp2/pavlo-soletskyi-site/settings/actions"
+  echo "  3. Also open https://github.com/soletp2/thetinkerbench/settings/actions"
   echo "     and set Workflow permissions to 'Read and write permissions'"
   echo ""
   echo "Then run: git push   (or: gh workflow run deploy.yml)"
@@ -57,4 +57,4 @@ gh run list --workflow=deploy.yml --limit 3
 
 echo ""
 echo "Site URL (after workflow completes):"
-echo "  https://soletp2.github.io/pavlo-soletskyi-site/"
+echo "  https://soletp2.github.io/thetinkerbench/"
